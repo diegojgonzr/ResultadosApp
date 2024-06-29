@@ -1100,12 +1100,14 @@ class ResultadosController extends Controller
                 $node->filter(".resultado .col-xs-6")->each(function ($item) use (&$fecha,&$resultados) {
                     $hora = trim($item->filter('.horario span')->text());
                     $imagenSrc = $item->filter('img')->attr('alt');
+
                     $imagenSrc = explode(" - ",$imagenSrc);
+
                     if (!isset($imagenSrc[0]))
                         $imagenSrc[0]="";
                     if (!isset($imagenSrc[1]))
                         $imagenSrc[1]="";
-                    
+
                     // Devolver los datos en un array asociativo
                     $resultados[52][]=[
                         'fecha'=>$fecha,
